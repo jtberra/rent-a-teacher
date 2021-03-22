@@ -11,24 +11,25 @@ export class GoogleSigninService {
   
   constructor() { 
     gapi.load('auth2', () =>{
-      gapi.auth2.init({
-        client_id: '1010140233470-l1sobop5af45crbj3cnv66mgg44stbnr.apps.googleusercontent.com'
+      this.auth2 = gapi.auth2.init({
+        client_id: '1010140233470-43fju0u7537h7tu235b29tce1qp0ld3h.apps.googleusercontent.com'
       })
     })
   }
-  public signin(){
+  public signIn(){
     this.auth2.signIn({
-      //scope
-    }).then (user =>{
+      //
+      scope: 'https://www.googleapis.com/auth/gmail.readonly'
+    }).then ( user => {
       this.subject.next(user)
-    }).catch( () =>{
+    }).catch( () => {
       this.subject.next(null)
     })
   }  
 
-  public signOut(){
+  public signOut() {
     this.auth2.signOut()
-    .then ( () =>{
+    .then ( () => {
       this.subject.next(null)
     })
   }  
