@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rent-a-teacher": {
+      "hosting": {
+        "rent-a-teacher-project": [
+          "rent-a-teacher"
+        ]
+      }
+    }
+  }
+}

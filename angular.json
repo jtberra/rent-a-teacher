@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rent-a-teacher": {
+    "rent-a-teacher-project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rent-a-teacher",
+            "outputPath": "dist/rent-a-teacher-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -26,7 +26,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -61,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rent-a-teacher:build"
+            "browserTarget": "rent-a-teacher-project:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rent-a-teacher:build:production"
+              "browserTarget": "rent-a-teacher-project:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rent-a-teacher:build"
+            "browserTarget": "rent-a-teacher-project:build"
           }
         },
         "test": {
@@ -109,16 +113,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rent-a-teacher:serve"
+            "devServerTarget": "rent-a-teacher-project:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rent-a-teacher:serve:production"
+              "devServerTarget": "rent-a-teacher-project:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "rent-a-teacher"
+  "defaultProject": "rent-a-teacher-project"
 }
