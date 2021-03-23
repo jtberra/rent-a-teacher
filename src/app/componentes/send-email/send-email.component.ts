@@ -18,7 +18,7 @@ export class SendEmailComponent implements OnInit {
   }
   onSendEmail(){
     //servicio send email. 
-    console.log('enviando email...');
+    this.authSvc.sendVerificationEmail();
   }
 
 }
