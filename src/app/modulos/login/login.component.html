@@ -15,16 +15,22 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
                 </form>
-                <div class="form-group mt-3">
+                <div class="form-group mt-3 text-center">
                     <p>¿No tienes una cuenta? <a [routerLink] = "['/register']">Regístrate ahora!</a></p>
+                </div>  
+                <div class="form-group mt-3 text-center">
+                    <p>¿Has olvidado tu contraseña? <a [routerLink] = "['/forgot-password']">Recupérala ahora!</a></p>
                 </div>  
             </div>
         </div>
     </div>
 </div>
-
-<button (click) = "signIn()" *ngIf = "user == null" >entrar</button>
-<button (click) = "signOut()"*ngIf = "user != null">Salir</button>
-<div *ngIf="user != null">
-    <div>Haz iniciado sesión con Google {{user.getBasicProfile().getName() }} </div>        
+<div class="row">
+    <div class="col-md-6 mx-auto mt-5 text-center">
+        <button class="btn btn-primary" (click) = "signIn()" *ngIf = "user == null" >Iniciar con mi cuenta de Google</button>
+        <button class="btn btn-primary" (click) = "signOut()"*ngIf = "user != null">Salir</button>
+        <div *ngIf="user != null">
+            <div>Haz iniciado sesión con Google {{user.getBasicProfile().getName() }} </div>        
+        </div>
+    </div>
 </div>
