@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
       const user = await this.authSvc.Register(email, password);  
       if(user){
         ///REDIRECCIONA AL REGISTRO DE DATOS GENERALES
-        this.router.navigate(['/home']);
+        this.router.navigate(['/verification-email']);
       }
     }
     catch(error){
