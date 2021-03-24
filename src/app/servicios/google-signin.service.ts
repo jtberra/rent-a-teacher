@@ -12,7 +12,7 @@ export class GoogleSigninService {
   constructor() { 
     gapi.load('auth2', () =>{
       this.auth2 = gapi.auth2.init({
-        client_id: '1096382463120-mlvht5cah8g6m3oj18sueefqajhg1sf9.apps.googleusercontent.com'
+        client_id: '1010140233470-bi9t5afnehlq60gl4cnkbhdb8trt6vuu.apps.googleusercontent.com'
       })
     })
   }
