@@ -4,13 +4,15 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
-    apiKey: "AIzaSyAEz39XOGpdCbl7qUimfVpqEjKB7ofSLsc",
-    authDomain: "rent-a-teacher.firebaseapp.com",
-    projectId: "rent-a-teacher",
-    storageBucket: "rent-a-teacher.appspot.com",
-    messagingSenderId: "1010140233470",
-    appId: "1:1010140233470:web:31c8b65d14b25268db2faf"
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  firebaseConfig: {
+    apiKey: "AIzaSyAQkog0oSTjH_wTyEAcNUKVyxwFxnesiX8",
+    authDomain: "rent-a-teacher-d693b.firebaseapp.com",
+    projectId: "rent-a-teacher-d693b",
+    storageBucket: "rent-a-teacher-d693b.appspot.com",
+    messagingSenderId: "1096382463120",
+    appId: "1:1096382463120:web:fb01bbc45d186e628d2c15",
+    measurementId: "G-M603M7H35T"
   }
 };
 
