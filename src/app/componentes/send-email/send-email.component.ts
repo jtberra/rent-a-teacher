@@ -15,10 +15,12 @@ export class SendEmailComponent implements OnInit {
   constructor(private authSvc: AuthService) { }
 
   ngOnInit(): void {
+    
   }
   onSendEmail(){
     //servicio send email. 
     this.authSvc.sendVerificationEmail();
   }
-
+  
 }
+

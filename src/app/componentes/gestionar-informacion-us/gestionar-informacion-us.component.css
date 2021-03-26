@@ -1,0 +1,74 @@
+.containercoment {
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    opacity: 0.9;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row;
+}
+input[type=text],
+select,
+textarea {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 1.5vw;
+}
+input[type=password]{
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 1.5vw;
+}
+h3{
+    padding-top: 20px;
+}
+.container .label{
+  display: contents;
+    margin-bottom: .5rem;
+}
+.container {
+    /* Por defecto en modo fila, uno al lado del otro */
+   
+    flex-flow: row;
+    font-size: 1.4vw;
+  }
+  
+  .item {
+      column-width:  50%;
+    flex: 50%;  
+    font-size: 1.5vw;
+  }
+  
+  
+  .rojo {
+    background-color: none;
+  }
+  .verde {
+    background-color: none;
+  }
+
+
+  /*----------*/
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.5vw;
+    color: #ffffff;
+    background-color: grey;
+    border-radius: 6px;
+    border: 2px solid grey;
+  }
+  .boton_personalizado:hover{
+    color: black;
+    background-color: #ffffff;
+  }
+  .row{
+      margin-left: 80%;
+  }

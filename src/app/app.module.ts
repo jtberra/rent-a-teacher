@@ -12,13 +12,16 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 import { environment } from 'src/environments/environment';
 import { SendEmailComponent } from './componentes/send-email/send-email.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GestionarInformacionUsComponent } from './componentes/gestionar-informacion-us/gestionar-informacion-us.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SendEmailComponent
+    SendEmailComponent,
+    GestionarInformacionUsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { SendEmailComponent } from './componentes/send-email/send-email.componen
     ///Modulo que provee la conexión al proyecto creado en firebase.
     AngularFireModule.initializeApp(environment.firebaseConfig), 
     ///Modulo que integra el servicio de autenticacion. 
-    AngularFireAuthModule
+    AngularFireAuthModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
