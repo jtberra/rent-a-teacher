@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   async onGoogleLogin(){
     try{
       this.authSvc.loginGoogle();
+      this.router.navigate(['/home'])
     }catch(error){
       console.log(error)
     }
