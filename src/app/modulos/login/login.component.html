@@ -27,10 +27,6 @@
 </div>
 <div class="row">
     <div class="col-md-6 mx-auto mt-5 text-center">
-        <button class="btn btn-primary" (click) = "signIn()" *ngIf = "user == null" >Iniciar con mi cuenta de Google</button>
-        <button class="btn btn-primary" (click) = "signOut()"*ngIf = "user != null">Salir</button>
-        <div *ngIf="user != null">
-            <div>Haz iniciado sesión con Google {{user.getBasicProfile().getName() }} </div>        
-        </div>
+        <button class="btn btn-primary" (click) = "onGoogleLogin()" >Iniciar con mi cuenta de Google</button>
     </div>
 </div>
