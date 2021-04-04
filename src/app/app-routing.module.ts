@@ -23,7 +23,11 @@ const routes: Routes = [{
     path: 'verification-email',
     component: SendEmailComponent
   },
-    { path: 'forgot-password', loadChildren: () => import('./modulos/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) }];
+    { path: 'forgot-password', loadChildren: () => import('./modulos/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },
+    { path: 'nuevo-curso', loadChildren: () => import('./cursos/nuevo-curso/nuevo-curso.module').then(m => m.NuevoCursoModule) },
+    { path: 'cursos-impartidos', loadChildren: () => import('./cursos/cursos-impartidos/cursos-impartidos.module').then(m => m.CursosImpartidosModule) },
+    { path: 'cursos-asignados', loadChildren: () => import('./cursos/cursos-asignados/cursos-asignados.module').then(m => m.CursosAsignadosModule) },
+    { path: 'modificar-curso', loadChildren: () => import('./cursos/modificar-curso/modificar-curso.module').then(m => m.ModificarCursoModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
