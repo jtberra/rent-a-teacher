@@ -20,6 +20,7 @@ export class TarjetaCursoComponent {
 
   ngOnInit(): void {
   }
+  
   onGoToDetails(item:any):void {
     this.navigationExtras.state.value = item;
     this.route.navigate(['detalles-curso'], this.navigationExtras);

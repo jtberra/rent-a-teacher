@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  item = [0 , 1, 2, 3];
+  item = [0 , 1, 2, 3, 4, 5];
 
   constructor() { }
 

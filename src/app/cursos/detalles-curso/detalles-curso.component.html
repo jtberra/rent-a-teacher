@@ -1,3 +1,28 @@
-<p>detalles-curso works!</p>
+<div class="card mt-5">
+    <div class="card-header">
+        <h2 class="card-title mt-2">titulo del curso</h2>
+        <h6 class="card-subtitle mb-2 text-muted">nombre largo del curso</h6>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <p>detalles del curso</p>
+            </li>
+            <li class="list-group-item">
+                <p>detalles del mentor</p>
+            </li>
+            <li class="list-group-item">
+                <p>prerequisitos</p>
+            </li>
+            <li class="list-group-item">
+                <p>acciones</p>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-primary m-3 btn-sm">cupo</button>
+        <button type="button" class="btn btn-outline-primary m-3 btn-sm">solicitar</button>
+    </div>
+</div>
 
-{{ value | json }}
+<button type="button" class="btn btn-outline-primary mt-2" (click) = "goback()">volver al catalogo</button>

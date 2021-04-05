@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalles-curso',
@@ -8,14 +8,23 @@ import { Router } from '@angular/router';
 })
 export class DetallesCursoComponent implements OnInit {
 
-  value = null;
+  navigationExtras:NavigationExtras ={
+    state: {
+      value: null
+    }
+  };
 
-  constructor(private router: Router) {
-    const navigation = this.router.getCurrentNavigation();
-    this.value = navigation?.extras?.state;
+  curso:any = null;
+
+  constructor(private route: Router) {
+    const navigation = this.route.getCurrentNavigation();
+    this.curso = navigation?.extras?.state;
    }
-
+ 
   ngOnInit(): void {
   }
 
+  goback():void {
+    this.route.navigate(['home']);
+  }
 }
