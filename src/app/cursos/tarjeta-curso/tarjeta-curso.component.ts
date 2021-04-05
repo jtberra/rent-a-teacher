@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
@@ -6,9 +6,9 @@ import { NavigationExtras, Router } from '@angular/router';
   templateUrl: './tarjeta-curso.component.html',
   styleUrls: ['./tarjeta-curso.component.css']
 })
-export class TarjetaCursoComponent implements OnInit {
+export class TarjetaCursoComponent {
 
-  item = [];
+  @Input() data: any;
 
   navigationExtras: NavigationExtras ={
     state: {
