@@ -31,9 +31,24 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <input class="form-control mr-sm-2" type="text" placeholder="buscar en tablero">
         <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
       </form>
     </div>
   </nav>
 
+<!-- 
+
+    tabla ejemplo para firebase
+
+-->
+<div class="grid-container mt-5">
+    <div *ngFor = "let card of [0, 1, 2, 3, 4, 5]">
+        <div class="mr-auto" role="listitem">
+            <app-tarjeta-curso [data] = "item"></app-tarjeta-curso>
+        </div>
+    </div>
+</div>
+
+
+<!--  -->

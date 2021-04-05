@@ -27,7 +27,8 @@ const routes: Routes = [{
     { path: 'nuevo-curso', loadChildren: () => import('./cursos/nuevo-curso/nuevo-curso.module').then(m => m.NuevoCursoModule) },
     { path: 'cursos-impartidos', loadChildren: () => import('./cursos/cursos-impartidos/cursos-impartidos.module').then(m => m.CursosImpartidosModule) },
     { path: 'cursos-asignados', loadChildren: () => import('./cursos/cursos-asignados/cursos-asignados.module').then(m => m.CursosAsignadosModule) },
-    { path: 'modificar-curso', loadChildren: () => import('./cursos/modificar-curso/modificar-curso.module').then(m => m.ModificarCursoModule) }];
+    { path: 'modificar-curso', loadChildren: () => import('./cursos/modificar-curso/modificar-curso.module').then(m => m.ModificarCursoModule) },
+    { path: 'detalles-curso', loadChildren: () => import('./cursos/detalles-curso/detalles-curso.module').then(m => m.DetallesCursoModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

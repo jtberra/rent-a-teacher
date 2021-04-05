@@ -12,7 +12,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 import { environment } from 'src/environments/environment';
 import { SendEmailComponent } from './componentes/send-email/send-email.component';
-import { TarjetaCursoComponent } from './cursos/tarjeta-curso/tarjeta-curso.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { TarjetaCursoComponent } from './cursos/tarjeta-curso/tarjeta-curso.comp
     AppComponent,
     NavbarComponent,
     SendEmailComponent,
-    TarjetaCursoComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

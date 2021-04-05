@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarjeta-curso',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TarjetaCursoComponent implements OnInit {
 
-  constructor() { }
+  item = [];
+
+  navigationExtras: NavigationExtras ={
+    state: {
+      value: null
+    }
+  };
+
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
-
+  onGoToDetails(item:any):void {
+    this.navigationExtras.state.value = item;
+    this.route.navigate(['detalles-curso'], this.navigationExtras);
+  }
 }
