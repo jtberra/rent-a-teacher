@@ -18,13 +18,22 @@ export class DetallesCursoComponent implements OnInit {
 
   constructor(private route: Router) {
     const navigation = this.route.getCurrentNavigation();
-    this.curso = navigation?.extras?.state;
+    this.curso = navigation?.extras?.state?.value;
    }
  
   ngOnInit(): void {
   }
 
   goback():void {
-    this.route.navigate(['home']);
+    this.route.navigate(['cursos-impartidos']);
+  }
+
+  onGoToEdit() :void {
+    this.navigationExtras.state.value = this.curso;
+    this.route.navigate(['modificar-curso'], this.navigationExtras);
+  }
+
+  onGoToDelete() : void {
+    alert('La acción borrará el registro de tu curso ## para siempre');
   }
 }

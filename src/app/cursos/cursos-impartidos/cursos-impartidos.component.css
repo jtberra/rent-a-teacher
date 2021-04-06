@@ -1,0 +1,10 @@
+.grid-container{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+    display: grid;
+    gap: 1.5625rem;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 0 0 15px 15px;
+}
