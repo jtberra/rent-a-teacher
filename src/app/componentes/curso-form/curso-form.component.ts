@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Curso } from 'src/app/cursos/modelos/curso.interface';
+import { CursoRecordService } from 'src/app/servicios/curso-record.service';
 
 @Component({
   selector: 'app-curso-form',
@@ -13,7 +14,7 @@ export class CursoFormComponent implements OnInit {
   curso: Curso = null;
   CursoForm: FormGroup;
 
-  constructor(private route: Router, private fb:FormBuilder) { 
+  constructor(private route: Router, private fb:FormBuilder, private cursosSvc : CursoRecordService) { 
     this.initForm();
     const navigation = this.route.getCurrentNavigation();
     this.curso = navigation?.extras?.state?.value;
@@ -29,14 +30,20 @@ export class CursoFormComponent implements OnInit {
   }
 
   onSave(){
-    console.log('actualizado', this.CursoForm.value);
+    if(this.CursoForm.valid){
+      const curso = this.CursoForm.value
+      const cursoId = this.curso?.id || null;
+      this.cursosSvc.onSaveCurso(curso, cursoId);
+      this.CursoForm.reset();
+    }else{
+      alert('el registro no es valido');   
+    }
   }
   //private isEmail = '/\S+@\S+.\S+/';
 
   private initForm() :void{
     this.CursoForm = this.fb.group({
       ///DEFINICION DEL FORMULRIO | VALIDACIONES
-      id:['', [Validators.required]],
       nombre:['', [Validators.required]],
       descripcion:['', [Validators.required]],
       //validacion email

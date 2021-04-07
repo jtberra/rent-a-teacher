@@ -15,6 +15,8 @@ import { SendEmailComponent } from './componentes/send-email/send-email.componen
 import { FooterComponent } from './componentes/footer/footer.component';
 import { CursoFormModule } from './componentes/curso-form/curso-form.module';
 
+/* FIRESTORE */
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { CursoFormModule } from './componentes/curso-form/curso-form.module';
     ///Modulo que integra el servicio de autenticacion. 
     AngularFireAuthModule, CursoFormModule
   ],
-  providers: [],
+  providers: [
+    ///Modulo que provee la conexión con FireStore
+    AngularFirestore,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
