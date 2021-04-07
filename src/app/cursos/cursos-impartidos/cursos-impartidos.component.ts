@@ -11,7 +11,7 @@ export class CursosImpartidosComponent implements OnInit {
   itemCursos = [
     {
       nombre : 'Introduccion al desarrollo Web',
-      descripcion: '¿Te intereza el mundo del desarrollo web? yo te enseño!',
+      descripcion: '¿Te interesa el mundo del desarrollo web? Yo te enseño!',
       mentor: 'Hugo Berra Salazar',
       tipo: 'Visible'
     },
@@ -26,6 +26,18 @@ export class CursosImpartidosComponent implements OnInit {
       mentor: 'Carlos Nochebuena',
       tipo: 'Visible'
     },{
+      nombre : 'Guitarra Acustica para principiantes',
+      descripcion: 'Te gustaria aprender a tocar la guitarra e ser el foco de atencion en las fiestas? aprende guitarra ahora!',
+      mentor: 'Cuitlahuac Luna',
+      tipo: 'Visible'
+    }
+    ,{
+      nombre : 'Guitarra Acustica para principiantes',
+      descripcion: 'Te gustaria aprender a tocar la guitarra e ser el foco de atencion en las fiestas? aprende guitarra ahora!',
+      mentor: 'Cuitlahuac Luna',
+      tipo: 'Visible'
+    }
+    ,{
       nombre : 'Guitarra Acustica para principiantes',
       descripcion: 'Te gustaria aprender a tocar la guitarra e ser el foco de atencion en las fiestas? aprende guitarra ahora!',
       mentor: 'Cuitlahuac Luna',

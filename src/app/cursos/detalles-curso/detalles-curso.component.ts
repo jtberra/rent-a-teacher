@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Curso } from '../modelos/curso.interface';
 
 @Component({
   selector: 'app-detalles-curso',
@@ -14,7 +15,7 @@ export class DetallesCursoComponent implements OnInit {
     }
   };
 
-  curso:any = null;
+  curso:Curso = null;
 
   constructor(private route: Router) {
     const navigation = this.route.getCurrentNavigation();
@@ -22,6 +23,10 @@ export class DetallesCursoComponent implements OnInit {
    }
  
   ngOnInit(): void {
+    if (typeof this.curso === 'undefined'){
+      ///REDIRECT a NUEVO CURSO
+      this.route.navigate(['nuevo-curso']);
+    }
   }
 
   goback():void {

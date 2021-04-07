@@ -1,21 +1,21 @@
 <div class="card mt-5">
     <div class="card-header">
-        <h2 class="card-title mt-2">titulo del curso</h2>
+        <h2 class="card-title mt-2">{{ curso.nombre }}</h2>
         <h6 class="card-subtitle mb-2 text-muted">nombre largo del curso</h6>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <p>detalles del curso</p>
+                <h4>{{ curso.descripcion }}</h4>
             </li>
             <li class="list-group-item">
-                <p>detalles del mentor</p>
+                <h4>Impartido por {{ curso. mentor}}</h4>
             </li>
             <li class="list-group-item">
-                <p>prerequisitos</p>
+                <h4>prerequisitos</h4>
             </li>
             <li class="list-group-item">
-                <p>acciones</p>
+                <h4>acciones</h4>
             </li>
         </ul>
     </div>
@@ -25,4 +25,4 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-outline-primary mt-2" (click) = "goback()">volver al catalogo</button>
+<button type="button" class="btn btn-outline-primary mt-2 bg-dark text-light" (click) = "goback()">volver al catalogo</button>
