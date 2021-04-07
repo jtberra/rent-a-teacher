@@ -39,11 +39,11 @@
 
 <!-- 
 
-    tabla ejemplo para firebase
+    tabla ejemplo para firebase 
 
 -->
 <div class="grid-container mt-5">
-    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos"></app-tarjeta-curso>
+    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async"></app-tarjeta-curso>
 </div>
 
 

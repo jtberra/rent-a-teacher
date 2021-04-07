@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CursoRecordService } from 'src/app/servicios/curso-record.service';
 
 @Component({
   selector: 'app-cursos-impartidos',
@@ -8,44 +9,9 @@ import { Router } from '@angular/router';
 })
 export class CursosImpartidosComponent implements OnInit {
 
-  itemCursos = [
-    {
-      nombre : 'Introduccion al desarrollo Web',
-      descripcion: '¿Te interesa el mundo del desarrollo web? Yo te enseño!',
-      mentor: 'Hugo Berra Salazar',
-      tipo: 'Visible'
-    },
-    {
-      nombre : 'Aprende Inglés',
-      descripcion: '¿Quieres tener más oportunidades académicas o laborales? ¿Quieres explorar más cultura y entretenimiento?',
-      mentor: 'Martha Santillan',
-      tipo: 'Visible'
-    },{
-      nombre : 'Aprende a preparar platillos Oaxaqueños!',
-      descripcion: 'La gastronomía de Oaxaca goza de renombre mundial por su gran diversidad y por sus exóticos sabores. Sus platillos son muy elaborados, y apreciados por considerarse artesanales.',
-      mentor: 'Carlos Nochebuena',
-      tipo: 'Visible'
-    },{
-      nombre : 'Guitarra Acustica para principiantes',
-      descripcion: 'Te gustaria aprender a tocar la guitarra e ser el foco de atencion en las fiestas? aprende guitarra ahora!',
-      mentor: 'Cuitlahuac Luna',
-      tipo: 'Visible'
-    }
-    ,{
-      nombre : 'Guitarra Acustica para principiantes',
-      descripcion: 'Te gustaria aprender a tocar la guitarra e ser el foco de atencion en las fiestas? aprende guitarra ahora!',
-      mentor: 'Cuitlahuac Luna',
-      tipo: 'Visible'
-    }
-    ,{
-      nombre : 'Guitarra Acustica para principiantes',
-      descripcion: 'Te gustaria aprender a tocar la guitarra e ser el foco de atencion en las fiestas? aprende guitarra ahora!',
-      mentor: 'Cuitlahuac Luna',
-      tipo: 'Visible'
-    }
-  ];
+  itemCursos$ = this.cursosSvc.curso;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cursosSvc: CursoRecordService) { }
 
   ngOnInit(): void {
   }

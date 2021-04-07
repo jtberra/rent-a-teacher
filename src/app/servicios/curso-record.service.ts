@@ -23,7 +23,7 @@ export class CursoRecordService {
       try{
         const result = await this.cursoCollection.doc(idCurso).delete();
         resolve (result);
-        alert('registro enviado');
+        alert('El Curso ha sido eliminado');
       }
       catch(err){
         reject(err.message);
@@ -32,14 +32,13 @@ export class CursoRecordService {
   }
 
   onSaveCurso(curso: Curso, idCurso:string) : Promise<void>{
-    alert('onSaveCurso');
     return new Promise(async (resolve, reject) => {
       try{
         const id = idCurso || this.afs.createId();
         const data = {id, ... curso };
         const result = await this.cursoCollection.doc(id).set(data);
         resolve(result);
-        alert('registro borrado');
+        alert('Tu curso se ha guardado con éxito');
       } catch(err){
         reject(err.message);
       }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { CursoRecordService } from 'src/app/servicios/curso-record.service';
 import { Curso } from '../modelos/curso.interface';
 
 @Component({
@@ -17,7 +18,7 @@ export class DetallesCursoComponent implements OnInit {
 
   curso:Curso = null;
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private cursoSvc : CursoRecordService) {
     const navigation = this.route.getCurrentNavigation();
     this.curso = navigation?.extras?.state?.value;
    }
@@ -33,12 +34,17 @@ export class DetallesCursoComponent implements OnInit {
     this.route.navigate(['cursos-impartidos']);
   }
 
-  onGoToEdit() :void {
+  onGoToEdit(curso:any) :void {
     this.navigationExtras.state.value = this.curso;
     this.route.navigate(['modificar-curso'], this.navigationExtras);
   }
 
-  onGoToDelete() : void {
-    alert('La acción borrará el registro de tu curso ## para siempre');
+  async onGoToDelete(idcurso:string) :Promise <void> {
+    try{
+      await this.cursoSvc.onDeleteCurso(idcurso);
+      this.route.navigate(['cursos-impartidos']);
+    }catch(err){
+      console.log(err);
+    }
   }
 }
