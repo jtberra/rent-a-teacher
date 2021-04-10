@@ -1,7 +1,7 @@
 <div class="card mt-5">
     <div class="card-header">
-        <h2 class="card-title mt-2">{{ curso.nombre }}</h2>
-        <h6 class="card-subtitle mb-2 text-muted">nombre largo del curso</h6>
+        <h2 class="card-title mt-2">{{ curso.nombreLargo }}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">{{ curso.nombre }}</h6>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
@@ -9,13 +9,13 @@
                 <h4>{{ curso.descripcion }}</h4>
             </li>
             <li class="list-group-item">
-                <h4>Impartido por {{ curso. mentor}}</h4>
+                <h4>Impartido por: {{ curso.mentor}}</h4>
             </li>
             <li class="list-group-item">
-                <h4>prerequisitos</h4>
+                <h4>Dirigido a: {{ curso.prerequisitos }}</h4>
             </li>
             <li class="list-group-item">
-                <h4>acciones</h4>
+                <h4>La visibilidad está: {{curso.disponibilidad}}</h4>
             </li>
         </ul>
     </div>

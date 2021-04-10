@@ -1,23 +1,71 @@
 <form class="col-md-8 offset-md-2 mt-5" [formGroup] = "CursoForm" (ngSubmit) = "onSave()">
-    <div class="form-row">
+    <div class="form-row mt-3">
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="nombre" formControlName = "nombre">
+            <label class="control-label" for="disabledInput">Dale un nombre a tu curso</label>
+            <input type="text" class="form-control" placeholder="Nombre de tu curso" formControlName = "nombre" 
+            [class] = "isValidField('nombre')">
+            <div class="invalid-feedback">
+                <span *ngIf = "CursoForm.get('nombre').errors?.required" >Tu curso necesitara un nombre</span>
+            </div>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="descripcion" formControlName = "descripcion">
+            <label class="control-label" for="disabledInput">¿Cómo debería aparecer tu curso en el catálogo?</label>
+            <input type="text" class="form-control" placeholder="Nombre que veran tus mentees" formControlName = "nombreLargo"
+            [class] = "isValidField('nombreLargo')">
+            <div class="invalid-feedback">
+                <span *ngIf = "CursoForm.get('nombreLargo').errors?.required">Es necesario un nombre para mostrar</span>
+            </div>
         </div>
     </div>
-    <div class="form-row">
+    <div class="form-row mt-3">
+        <div class="form-group col-md-8">
+            <label class="control-label" for="disabledInput">Cuentanos todo sobre tu curso</label>
+            <textarea class="form-control" placeholder="Añade una descripción detallada del curso"  formControlName = "descripcion" 
+            rows="3" [class] = "isValidField('descripcion')"></textarea>
+            <div class="invalid-feedback">
+                <span *ngIf = "CursoForm.get('descripcion').errors?.required">Tu descripcion no puede faltar!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mt-3">
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="mentor" formControlName = "mentor">
+            <label class="control-label" for="disabledInput">¿Tu curso debería aparecer de manera inmediata en el catálogo?</label>
+            <div class="form-group">
+                <select class="custom-select" formControlName = "disponibilidad">
+                  <option selected="" value="disponible">Que mi curso sea visible para todo el mundo</option>
+                  <option value="no disponible">Prefiero que permanezca visible sólo para mí</option>
+                </select>
+              </div>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="tipo" formControlName = "tipo">
+            <label class="control-label" for="disabledInput">Indica cual es la escolaridad mínima que debe tener la persona que solicite tu curso</label>
+            <div class="form-group">
+                <select class="custom-select" formControlName = "prerequisitos">
+                  <option selected="" value="cualquiera">Cualquier persona puede tomar mi curso</option>
+                  <option value="basico">Una escolaridad básica será suficiente</option>
+                  <option value="mediasuperior">Una escolaridad media superior será suficiente</option>
+                  <option value="superior">Una escolaridad superior será suficiente</option>
+                  <option value="especilistas">Mi curso es solo para especialistas en el campo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mt-3">
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="useterms" formControlName = "condicionesCheck">
+                <label class="custom-control-label" for="useterms">Estoy de acuerdo con los <a href="#">Términos y Condiciones de Uso</a>.</label>
+              </div>
         </div>
     </div>
     <div class="form-row">
         <div class="btn-group">
-            <button type="submit" class="btn bg-dark text-light mt-5">Guardar</button>
+            <button type="submit" class="btn bg-dark text-light mt-5" [disabled]="CursoForm.invalid">Guardar</button>
         </div>
     </div>
 </form>
+
+<!-- <pre>
+    Status:
+    {{ CursoForm.valid }}
+</pre> -->

@@ -39,18 +39,28 @@ export class CursoFormComponent implements OnInit {
       alert('el registro no es valido');   
     }
   }
+
+  isValidField(field:string):string{
+    const validatedField = this.CursoForm.get(field);
+    return (!validatedField.valid && validatedField.touched)
+    ? 'is-invalid' : validatedField.touched ? 'is-valid' : '';  
+  }
+
+  //validacion email
   //private isEmail = '/\S+@\S+.\S+/';
+  //campo3:['', [Validators.required, Validators.pattern(this.isEmail)]],
 
   private initForm() :void{
     this.CursoForm = this.fb.group({
-      ///DEFINICION DEL FORMULRIO | VALIDACIONES
       nombre:['', [Validators.required]],
-      descripcion:['', [Validators.required]],
-      //validacion email
-      //campo3:['', [Validators.required, Validators.pattern(this.isEmail)]],
-      mentor:['', [Validators.required]],
-      tipo:['', [Validators.required]]
+      nombreLargo:['', Validators.required],
+      descripcion:['', [Validators.required, Validators.maxLength(500)]],
+      disponibilidad:['', Validators.required],
+      prerequisitos:['', Validators.required],
+      condicionesCheck:[Validators.required, Validators.requiredTrue],
+      estado:[''],
+      tipo:[''],
+      mentor:['']
     });
   }
-
 }
