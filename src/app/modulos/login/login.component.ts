@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { User } from '../modelos/user.interface';
 
 
 // google sign in 
@@ -20,8 +21,12 @@ export class LoginComponent implements OnInit {
 
   async onGoogleLogin(){
     try{
-      this.authSvc.loginGoogle();
-      this.router.navigate(['/home'])
+      const user = await this.authSvc.loginGoogle();
+      if (user){
+        this.checkUserIsVerefied(user);
+      }else{
+        alert('cuenta no verificada')
+      }
     }catch(error){
       console.log(error)
     }
@@ -52,22 +57,23 @@ export class LoginComponent implements OnInit {
   }*/
   
   async onLogin(){
-    const {email, password} = this.loginForm.value;
+    const { email, password } = this.loginForm.value;
     try{
-      const user = this.authSvc.login(email, password)
-      if(user && (await user).emailVerified){
-        ///redireccionan al dashboard
-        this.router.navigate(['/home'])
-      }else if(user){
-        this.router.navigate(['/verification-email'])
-      }else{
-        this.router.navigate(['/register'])
-      }
-    }
-    catch(error){
+      const user = await this.authSvc.login(email, password);
+      this.checkUserIsVerefied(user);
+    }catch(error){
       console.log(error);      
     }
   }
 
+  private checkUserIsVerefied(user:User){
+    if(user &&  user.emailVerified){
+      this.router.navigate(['/home'])
+    }else if(user){
+      this.router.navigate(['/verification-email'])
+    }else{
+      this.router.navigate(['/register'])
+    }
+  }
 }
 
