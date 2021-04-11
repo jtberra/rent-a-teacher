@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   async onRegister(){
     const {email, password} = this.registerForm.value;
     try{
-      const user = await this.authSvc.Register(email, password);  
+      const user = await this.authSvc.register(email, password);  
       if(user){
         ///REDIRECCIONA AL REGISTRO DE DATOS GENERALES
         this.router.navigate(['/verification-email']);

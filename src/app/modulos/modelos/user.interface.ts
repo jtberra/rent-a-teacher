@@ -1,12 +1,12 @@
-export type Role = 'MENTEE' | 'MENTOR' | 'AMBOS';
+export type Roles = 'MENTEE' | 'MENTOR' | 'AMBOS';
 
 export interface User {
     uid: string;
     email: string;
-    displayname?: string;
+    displayName?: string;
     emailVerified: boolean;
     password?: string;
     photoURL?: string;
-    role?: Role;
+    role?: Roles;
 }
 

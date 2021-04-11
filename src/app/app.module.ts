@@ -20,6 +20,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 /* SERVICIO DE AUTENTIFICACIÓN */
 import { AuthService } from './servicios/auth.service';
+import { GuardEditGuard } from './guards/guard-edit.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthService } from './servicios/auth.service';
   providers: [
     ///Modulo que provee la conexión con FireStore
     AngularFirestore,
-    AuthService
+    AuthService,
+    GuardEditGuard,
   ],
   bootstrap: [AppComponent]
 })

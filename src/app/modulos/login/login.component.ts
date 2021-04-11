@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
   async onLogin(){
     const {email, password} = this.loginForm.value;
     try{
-      const user = this.authSvc.logIn(email, password)
-      if(user && (await user).user.emailVerified){
+      const user = this.authSvc.login(email, password)
+      if(user && (await user).emailVerified){
         ///redireccionan al dashboard
         this.router.navigate(['/home'])
       }else if(user){

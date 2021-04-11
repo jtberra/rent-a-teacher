@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SendEmailComponent } from './componentes/send-email/send-email.component';
+import { GuardEditGuard } from './guards/guard-edit.guard';
 
 const routes: Routes = [{ 
     path: 'home', 
-    loadChildren: () => import('./modulos/home/home.module').then(m => m.HomeModule) 
+    loadChildren: () => import('./modulos/home/home.module').then(m => m.HomeModule),
+    canActivate:[GuardEditGuard],
+
   },
   {
     path: '', 
