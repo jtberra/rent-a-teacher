@@ -48,7 +48,9 @@ const routes: Routes = [{
   { path: 'detalles-curso', 
     loadChildren: () => import('./cursos/detalles-curso/detalles-curso.module').then(m => m.DetallesCursoModule),
     canActivate:[GuardEditGuard]
-  }];
+  },
+    { path: 'nuevo-usuario', loadChildren: () => import('./usuarios/nuevo-usuario/nuevo-usuario.module').then(m => m.NuevoUsuarioModule) },
+    { path: 'modificar-usuario', loadChildren: () => import('./usuarios/modificar-usuario/modificar-usuario.module').then(m => m.ModificarUsuarioModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

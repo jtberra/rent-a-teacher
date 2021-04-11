@@ -72,6 +72,7 @@ export class AuthService extends RoleValidator{
         password
       );
       await this.sendVerificationEmail(); 
+      this.updateUserData(user);
       return user;
     }catch(error){
       console.log(error);
@@ -98,8 +99,9 @@ export class AuthService extends RoleValidator{
       photoURL: user.photoURL,
       role: 'AMBOS'
     };
-
     return userRef.set(data, {merge : true});
-
+  }
+  getCurrentUser() : Promise<User>{
+    return this.afAuth.currentUser;
   }
 }
