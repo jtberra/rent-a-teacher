@@ -1,3 +1,44 @@
-<h3 class="text-center mt-5">AQUI ESTARÁ EL DASHBOARD DE LOS USUARIOS</h3>
-<p class="text-center">Bienvenido</p>
 
+<!-- panel de navegacion del dashboard -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center mt-5">
+  <a class="navbar-brand" RouterLink = 'home'>Tablero
+    <span class="sr-only">(current)</span>
+  </a>  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Mi perfil</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Catalogo de cursos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Mis cursos</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink = "/nuevo-curso">Registrar un curso</a>
+          <a class="dropdown-item" routerLink = "/cursos-impartidos">Modificacar mis cursos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">...</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="buscar en tablero">
+      <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
+    </form>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5">
+    <div class="card">
+      <h3 class="text-center m-3">Tablero del usuario</h3>
+      <h3 class="text-center" >bienvenido</h3>
+    </div>
+  </div>
+</div>

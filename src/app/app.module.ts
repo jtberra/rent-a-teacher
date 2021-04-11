@@ -12,13 +12,18 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 import { environment } from 'src/environments/environment';
 import { SendEmailComponent } from './componentes/send-email/send-email.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { CursoFormModule } from './componentes/curso-form/curso-form.module';
 
+/* FIRESTORE */
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SendEmailComponent
+    SendEmailComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,9 +32,12 @@ import { SendEmailComponent } from './componentes/send-email/send-email.componen
     ///Modulo que provee la conexión al proyecto creado en firebase.
     AngularFireModule.initializeApp(environment.firebaseConfig), 
     ///Modulo que integra el servicio de autenticacion. 
-    AngularFireAuthModule
+    AngularFireAuthModule, CursoFormModule
   ],
-  providers: [],
+  providers: [
+    ///Modulo que provee la conexión con FireStore
+    AngularFirestore,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
