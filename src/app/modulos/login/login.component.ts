@@ -12,7 +12,6 @@ import { AuthService } from 'src/app/servicios/auth.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [AuthService],
 })
 export class LoginComponent implements OnInit {
   //inicio de sesion con google

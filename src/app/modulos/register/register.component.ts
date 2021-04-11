@@ -7,7 +7,6 @@ import {  AuthService } from './../../servicios/auth.service';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [AuthService],
 })
 
 export class RegisterComponent implements OnInit {

@@ -2,12 +2,27 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 import firebase from 'firebase/app';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { User } from '../modulos/modelos/user.interface';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
  
 export class AuthService { 
 
-  constructor(public afAuth: AngularFireAuth) { }
+  public user$:Observable<User>;
+
+  constructor(public afAuth: AngularFireAuth) { 
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap( user =>{
+        if(user){
+          return; //user
+        }else{
+          return of(null);
+        }
+      })
+    )
+  }
 
   async loginGoogle(){
     try{

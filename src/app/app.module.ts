@@ -18,6 +18,9 @@ import { CursoFormModule } from './componentes/curso-form/curso-form.module';
 /* FIRESTORE */
 import { AngularFirestore } from '@angular/fire/firestore';
 
+/* SERVICIO DE AUTENTIFICACIÓN */
+import { AuthService } from './servicios/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providers: [
     ///Modulo que provee la conexión con FireStore
     AngularFirestore,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
