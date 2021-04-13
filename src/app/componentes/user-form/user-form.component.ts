@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/modulos/modelos/user.interface';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { UserRecordService } from 'src/app/servicios/user-record.service';
 
 @Component({
   selector: 'app-user-form',
@@ -10,6 +13,14 @@ import { AuthService } from 'src/app/servicios/auth.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
+
+  //
+  //observable del usuario que actualmente está logado
+  public user$:Observable<User> = this.authSvc.afAuth.user;
+  ///arreglo | item de colección del documento 'users'
+  public itemUser$ = this.userSvc.user;
+
+  //  
   
   user: User = null;
   UserForm :FormGroup;
@@ -18,31 +29,28 @@ export class UserFormComponent implements OnInit {
     const currentUser:User = await this.authSvc.getCurrentUser();
     if(currentUser){
       this.user = currentUser;
-    }   
+    }else{
+      ///REDIRECT a LOGIN 
+      //window.alert('ucurrio un error al recuperrar la userdata');
+    }
   }
 
-  constructor(private route: Router, private fb:FormBuilder, private authSvc : AuthService){
+  constructor(private route: Router, private fb:FormBuilder, private authSvc : AuthService,
+    private userSvc: UserRecordService, private afs : AngularFirestore){
     this.initForm();
     this.getUser();
   }
 
   ngOnInit(): void {
-    if (typeof this.user === 'undefined'){
-      ///REDIRECT a LOGIN 
-      window.alert('ucurrio un error al recuperrar la userdata')
-    }else{
-      this.UserForm.patchValue(this.user);
-    }
+    this.UserForm.patchValue(this.user);
   }
 
   onSave(){
      if(this.UserForm.valid){
-       console.log(this.UserForm.value)
-      /*const curso = this.CursoForm.value
-      const cursoId = this.curso?.id || null;
-      this.cursosSvc.onSaveCurso(curso, cursoId);
-      this.CursoForm.reset();*/
-      alert('el registro es valido');   
+      const user = this.UserForm.value
+      const userId = this.user.uid;
+      this.userSvc.onSaveUser(user, userId);
+      this.route.navigate(['/home']);
     }else{
       alert('el registro no es valido');   
     }
@@ -54,14 +62,14 @@ export class UserFormComponent implements OnInit {
     ? 'is-invalid' : validatedField.touched ? 'is-valid' : '';
   }
 
-  
-
   private initForm() :void{
     this.UserForm = this.fb.group({
       displayName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      photoURL: ['', Validators.required,],
       phoneNumber:['', Validators.required],
+      photoURL: ['', Validators.required,],
+      role:['AMBOS'],
+      emailVerified:['true']
     });
   }
 }
