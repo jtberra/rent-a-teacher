@@ -50,7 +50,8 @@ const routes: Routes = [{
     canActivate:[GuardEditGuard]
   },
     { path: 'nuevo-usuario', loadChildren: () => import('./usuarios/nuevo-usuario/nuevo-usuario.module').then(m => m.NuevoUsuarioModule) },
-    { path: 'modificar-usuario', loadChildren: () => import('./usuarios/modificar-usuario/modificar-usuario.module').then(m => m.ModificarUsuarioModule) }];
+    { path: 'modificar-usuario', loadChildren: () => import('./usuarios/modificar-usuario/modificar-usuario.module').then(m => m.ModificarUsuarioModule) },
+    { path: 'mi-perfil', loadChildren: () => import('./usuarios/mi-perfil/mi-perfil.module').then(m => m.MiPerfilModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

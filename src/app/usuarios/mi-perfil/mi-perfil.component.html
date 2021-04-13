@@ -1,0 +1,29 @@
+<div *ngFor = "let card of itemUser$ | async">
+    <div *ngIf = "user.uid == card.uid">
+        <div class="card mb-3 mt-5">
+            <h3 class="card-header">Bienvenido {{ card.displayName }}</h3>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+            </div>
+            <div class="card-body list-group-flush">
+                <img src="{{ card.photoURL }}" alt="{{ card.photoURL }}">
+            </div>
+            <div class="card-body">
+              <p class="card-text">tipo de usuario: {{ card.role }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">email: {{ card.email }}</li>
+              <li class="list-group-item">phoneNumber: {{ card.phoneNumber }}</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+            <div class="card-body">
+              <a href="" class="card-link">Card link</a>
+              <a href="" class="card-link">Another link</a>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
+          </div>
+    </div>
+</div>
