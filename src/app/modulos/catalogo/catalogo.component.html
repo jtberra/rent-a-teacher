@@ -1,6 +1,5 @@
-<p>hoas</p>
 
-{{ itemCursos$ | async }}
+<button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
 
 <div class="grid-container mt-5">
     <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async"></app-tarjeta-curso>

@@ -16,4 +16,8 @@ export class CatalogoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goBack(){
+    this.router.navigate(['home']);
+  }
+
 }
