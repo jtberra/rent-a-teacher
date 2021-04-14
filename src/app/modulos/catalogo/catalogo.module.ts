@@ -6,7 +6,8 @@ import { CatalogoComponent } from './catalogo.component';
 import { TarjetaCursoModule } from 'src/app/cursos/tarjeta-curso/tarjeta-curso.module';
 
 import { PaginatePipe } from '../../pipes/paginate.pipe';
-//import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { CustomMatPaginatorIntl } from '../../servicios/paginator-es';
 
 @NgModule({
   declarations: [CatalogoComponent,
@@ -15,7 +16,12 @@ import { PaginatePipe } from '../../pipes/paginate.pipe';
     CommonModule,
     CatalogoRoutingModule,
     TarjetaCursoModule,
-    //MatPaginatorModule
-  ]
+    MatPaginatorModule
+  ],
+  providers:[
+    {
+      provide: MatPaginatorIntl, 
+      useClass: CustomMatPaginatorIntl
+    }]
 })
 export class CatalogoModule { }
