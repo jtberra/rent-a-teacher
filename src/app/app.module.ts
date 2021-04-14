@@ -29,7 +29,7 @@ import { TarjetaCursoModule } from './cursos/tarjeta-curso/tarjeta-curso.module'
     AppComponent,
     NavbarComponent,
     SendEmailComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

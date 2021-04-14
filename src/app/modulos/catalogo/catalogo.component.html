@@ -1,6 +1,12 @@
 
 <button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
 
+<!-- <mat-paginator [length]="100"
+    [pageSize]="page_size"
+    [pageSizeOptions]="pageSizeOptions" 
+    (page)="handlePage($event)">
+</mat-paginator> -->
+
 <div class="grid-container mt-5">
-    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async"></app-tarjeta-curso>
+    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$| async | paginate:page_size:page_number"></app-tarjeta-curso>
 </div>
