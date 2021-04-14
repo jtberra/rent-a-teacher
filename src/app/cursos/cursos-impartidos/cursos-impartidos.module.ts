@@ -3,18 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { CursosImpartidosRoutingModule } from './cursos-impartidos-routing.module';
 import { CursosImpartidosComponent } from './cursos-impartidos.component';
-
-import { TarjetaCursoComponent } from '../tarjeta-curso/tarjeta-curso.component';
+import { TarjetaCursoModule } from '../tarjeta-curso/tarjeta-curso.module';
 
 
 @NgModule({
-  declarations: [
-    CursosImpartidosComponent,
-    TarjetaCursoComponent, 
-  ],
+  declarations: [CursosImpartidosComponent],
   imports: [
     CommonModule,
-    CursosImpartidosRoutingModule
+    CursosImpartidosRoutingModule,
+    TarjetaCursoModule
   ]
 })
 export class CursosImpartidosModule { }
