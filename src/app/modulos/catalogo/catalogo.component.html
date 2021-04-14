@@ -1,11 +1,12 @@
 
 <button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
 
-<mat-paginator [length]="100"
-    [pageSize]="page_size"
-    [pageSizeOptions]="pageSizeOptions" 
-    (page)="handlePage($event)"
-    showFirstLastButtons>
+<mat-paginator  
+                [length]="100"
+                [pageSize]="page_size"
+                [pageSizeOptions]="[6, 12, 24, 100]"
+                (page)="handlePage($event)"
+                showFirstLastButtons>
 </mat-paginator>
 
 <div class="grid-container mt-5">

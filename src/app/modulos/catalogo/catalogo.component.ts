@@ -14,7 +14,6 @@ export class CatalogoComponent implements OnInit {
 
   page_size: number = 6;
   page_number: number = 1;
-  pageSizeOptions = [6, 12, 24];
 
   handlePage(e:PageEvent){
     this.page_size = e.pageSize
