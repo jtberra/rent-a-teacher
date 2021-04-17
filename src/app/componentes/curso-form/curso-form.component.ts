@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Curso } from 'src/app/cursos/modelos/curso.interface';
+import { User } from 'src/app/modulos/modelos/user.interface';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { CursoRecordService } from 'src/app/servicios/curso-record.service';
 
 @Component({
@@ -12,10 +14,25 @@ import { CursoRecordService } from 'src/app/servicios/curso-record.service';
 export class CursoFormComponent implements OnInit {
   
   curso: Curso = null;
+  user: User = null;
+
+  uid : string = null;
+
   CursoForm: FormGroup;
 
-  constructor(private route: Router, private fb:FormBuilder, private cursosSvc : CursoRecordService) { 
-    this.initForm();
+
+  async getUser() {
+    const currentUser:User = await this.authSvc.getCurrentUser();
+    if(currentUser){
+      this.user= currentUser;
+      this.initForm(this.user.uid);
+    }
+  }
+
+  constructor(private route: Router, private fb:FormBuilder, private cursosSvc : CursoRecordService, 
+    private authSvc: AuthService)
+  {
+    this.getUser(); 
     const navigation = this.route.getCurrentNavigation();
     this.curso = navigation?.extras?.state?.value;
   }
@@ -46,11 +63,7 @@ export class CursoFormComponent implements OnInit {
     ? 'is-invalid' : validatedField.touched ? 'is-valid' : '';  
   }
 
-  //validacion email
-  //private isEmail = '/\S+@\S+.\S+/';
-  //campo3:['', [Validators.required, Validators.pattern(this.isEmail)]],
-
-  private initForm() :void{
+  private initForm(uid:string) :void{
     this.CursoForm = this.fb.group({
       nombre:['', [Validators.required]],
       nombreLargo:['', Validators.required],
@@ -60,7 +73,7 @@ export class CursoFormComponent implements OnInit {
       condicionesCheck:[Validators.required, Validators.requiredTrue],
       estado:[''],
       tipo:[''],
-      mentor:['']
+      mentor:[uid]
     });
   }
 }

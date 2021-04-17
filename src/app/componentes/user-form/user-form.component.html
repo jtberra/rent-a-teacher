@@ -1,11 +1,5 @@
 <div *ngFor = "let card of itemUser$ | async">
     <div *ngIf = "user.uid == card.uid"> 
-        <p>nombre : {{ card.displayName }}</p>
-        <p>email: {{ card.email }}</p>
-        <p>phoneNumber: {{ card.phoneNumber }}</p> 
-        <p>uid: {{ card.uid }}</p>
-        <p>photoURL: {{ card.photoURL }}</p>
-        
         <form class="col-md-8 offset-md-2 mt-5" [formGroup] = "UserForm" (ngSubmit) = "onSave()">
             <div class="form-row mt-3">
                 <div class="form-group col-md-6">

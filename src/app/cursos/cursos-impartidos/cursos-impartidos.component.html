@@ -1,15 +1,8 @@
-<!-- 
-
-    panel de navegacion del dashboard
-
--->
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center mt-5">
     <a class="navbar-brand" routerLink = "/home">Tablero</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -22,7 +15,7 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Mis cursos</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" routerLink = "/nuevo-curso">Registrar un curso</a>
-            <a class="dropdown-item" routerLink = "/cursos-impartidos">Modificar mis cursos
+            <a class="dropdown-item" routerLink = "/cursos-impartidos">Ver mis cursos
                 <span class="sr-only">(current)</span>
             </a>
             <div class="dropdown-divider"></div>
@@ -37,14 +30,20 @@
     </div>
   </nav>
 
-<!-- 
-
-    tabla ejemplo para firebase 
-
--->
-<div class="grid-container mt-5">
-    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async"></app-tarjeta-curso>
+<div class="mt-5">
+  <h2 class="card-title text-center">Panel de administración de tus cursos</h2>
+  <mat-paginator  
+                [length]="20"
+                [pageSize]="page_size"
+                [pageSizeOptions]="[2, 4, 10]"
+                (page)="handlePage($event)">
+  </mat-paginator>
+  <div class="car-body mx-4 mt-4" *ngFor = "let cursoArray of itemCursos$ | async | paginateCursosImpartidos:page_size:page_number">
+    <div *ngIf = "user.uid == cursoArray.mentor">
+        <app-tarjeta-curso [data] = "cursoArray"></app-tarjeta-curso>
+      <ng-template #emtydata>
+        <p>vacio jsjs</p>
+      </ng-template>
+    </div>
+  </div>
 </div>
-
-
-<!--  -->
