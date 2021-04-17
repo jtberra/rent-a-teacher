@@ -1,0 +1,50 @@
+<div *ngFor = "let card of itemUser$ | async">
+    <div *ngIf = "user.uid == card.uid"> 
+        <form class="col-md-8 offset-md-2 mt-5" [formGroup] = "UserForm" (ngSubmit) = "onSave()">
+            <div class="form-row mt-3">
+                <div class="form-group col-md-6">
+                    <label class="control-label">El nombre que te gustaría que vieran las demás personas.</label>
+                    <input type="text" class="form-control" formControlName = "displayName" 
+                    [class] = "isValidField('displayName')">
+                    <div class="invalid-feedback">
+                        <span *ngIf = "UserForm.get('displayName').errors?.required" >Tu nombre es un campo requerido.</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">El correo con el que esta asociada tu cuenta. (si lo actualizas deberas verificarlo)</label>
+                    <input type="text" class="form-control" formControlName = "email" 
+                    [class] = "isValidField('email')">
+                    <div class="invalid-feedback">
+                        <span *ngIf = "UserForm.get('email').errors?.required">Tu email es un campo requerido</span>
+                        <span *ngIf = "UserForm.get('email').errors?.email">Escribe un correo electrónico válido.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-6">
+                    <label class="control-label">Añade un telefono de contacto.</label>
+                    <input type="text" class="form-control" formControlName = "phoneNumber" 
+                    [class] = "isValidField('phoneNumber')">
+                    <div class="invalid-feedback">
+                        <span *ngIf = "UserForm.get('phoneNumber').errors?.required" >Tu teléfono es un campo requerido.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-10 mt-3">
+                    <div class="form-group">
+                        <label for="exampleInputFile">Elige una foto de perfil</label>
+                        <input type="file" class="form-control-file is-valid" id="exampleInputFile" aria-describedby="fileHelp" 
+                        formControlName = "photoURL">
+                        <small id="fileHelp" class="form-text text-muted">Recuerda que todos los usarios que puedan interactuar contigo verán esta fotografía.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="btn-group">
+                    <button type="submit" class="btn bg-dark text-light mt-5" [disabled]="UserForm.invalid">Guardar</button>
+                </div>
+            </div>
+        </form> 
+    </div>
+</div>

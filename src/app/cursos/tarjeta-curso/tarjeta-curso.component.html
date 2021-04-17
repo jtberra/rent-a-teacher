@@ -1,17 +1,24 @@
-<div class="card mt-3">
-  <div class="card-header">
-    <h4 class="card-title">{{ data.nombre }}</h4>
-  </div>
-    <div class="card-body">
-      
-      <h6 class="card-subtitle mb-2 text-muted">{{ data.mentor }}</h6>
-      <p class="card-text"> {{ data.descripcion }} </p>
-      <!-- data se hereda del padre ['cursos-impartidos'] -->
-
-      <button type="button" class="btn btn-sm text-light bg-dark" (click) = "onGoToDetails(data)">Abrir detalles</button>
-      <!--
-        <a class="card-link" >Abrir detalles</a>
-        <a href="#" class="card-link">Another link</a> 
-      -->
+<div *ngFor = "let card of itemUser$ | async">
+  <div *ngIf = "data.mentor == card.uid">
+    <div class="card mt-3">
+      <div class="card-header">
+        <h4 class="card-title">{{ data.nombre }}</h4>
+      </div>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2">Trabaja con {{ card.displayName }}</h6>
+        <p class="card-text"> {{ data.descripcion }} </p>
+        <div class="btn-toolbar">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click) = "onGoToDetails(data)">
+            Detalles
+          </button>
+          <button type="button" class="btn btn-outline-warning btn-sm" (click) = "onGoToDetails(data)">
+            Editar
+          </button>
+          <button type="button" class="btn btn-outline-danger btn-sm" (click) = "onGoToDetails(data)">
+            Eliminar
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+</div>

@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { User } from 'src/app/modulos/modelos/user.interface';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UserRecordService } from 'src/app/servicios/user-record.service';
 
 @Component({
   selector: 'app-tarjeta-curso',
@@ -7,6 +10,8 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./tarjeta-curso.component.css']
 })
 export class TarjetaCursoComponent {
+
+  public itemUser$ = this.userSvc.user;
 
   @Input() data: any;
 
@@ -16,7 +21,9 @@ export class TarjetaCursoComponent {
     }
   };
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private userSvc:UserRecordService) { 
+
+  }
 
   ngOnInit(): void {
   }

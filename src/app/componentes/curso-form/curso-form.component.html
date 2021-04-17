@@ -32,20 +32,20 @@
             <label class="control-label" for="disabledInput">¿Tu curso debería aparecer de manera inmediata en el catálogo?</label>
             <div class="form-group">
                 <select class="custom-select" formControlName = "disponibilidad">
-                  <option selected="" value="disponible">Que mi curso sea visible para todo el mundo</option>
-                  <option value="no disponible">Prefiero que permanezca visible sólo para mí</option>
+                <option selected="" value="disponible">Que mi curso sea visible para todo el mundo</option>
+                <option value="no disponible">Prefiero que permanezca visible sólo para mí</option>
                 </select>
-              </div>
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label class="control-label" for="disabledInput">Indica cual es la escolaridad mínima que debe tener la persona que solicite tu curso</label>
             <div class="form-group">
                 <select class="custom-select" formControlName = "prerequisitos">
-                  <option selected="" value="cualquiera">Cualquier persona puede tomar mi curso</option>
-                  <option value="basico">Una escolaridad básica será suficiente</option>
-                  <option value="mediasuperior">Una escolaridad media superior será suficiente</option>
-                  <option value="superior">Una escolaridad superior será suficiente</option>
-                  <option value="especilistas">Mi curso es solo para especialistas en el campo</option>
+                <option selected="" value="cualquiera">Cualquier persona puede tomar mi curso</option>
+                <option value="basico">Una escolaridad básica será suficiente</option>
+                <option value="mediasuperior">Una escolaridad media superior será suficiente</option>
+                <option value="superior">Una escolaridad superior será suficiente</option>
+                <option value="especilistas">Mi curso es solo para especialistas en el campo</option>
                 </select>
             </div>
         </div>
@@ -55,7 +55,7 @@
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="useterms" formControlName = "condicionesCheck">
                 <label class="custom-control-label" for="useterms">Estoy de acuerdo con los <a href="#">Términos y Condiciones de Uso</a>.</label>
-              </div>
+            </div>
         </div>
     </div>
     <div class="form-row">
@@ -64,7 +64,6 @@
         </div>
     </div>
 </form>
-
 <!-- <pre>
     Status:
     {{ CursoForm.valid }}

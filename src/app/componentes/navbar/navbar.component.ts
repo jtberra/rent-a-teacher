@@ -13,16 +13,14 @@ export class NavbarComponent{
 
   public user$:Observable<User> = this.authSvc.afAuth.user;
 
-  constructor(private authSvc: AuthService, private router: Router) { }
+  constructor(private authSvc: AuthService, private router: Router) {}
 
   async onLogout(){
     try{
       await this.authSvc.logOut();
-      this.router.navigate(['/login']);
     }
     catch(error){
       console.log(error);
     }
-    
   }
 }

@@ -21,13 +21,16 @@ import { AngularFirestore } from '@angular/fire/firestore';
 /* SERVICIO DE AUTENTIFICACIÓN */
 import { AuthService } from './servicios/auth.service';
 import { GuardEditGuard } from './guards/guard-edit.guard';
+import { UserFormModule } from './componentes/user-form/user-form.module';
+import { TarjetaCursoModule } from './cursos/tarjeta-curso/tarjeta-curso.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SendEmailComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { GuardEditGuard } from './guards/guard-edit.guard';
     ///Modulo que provee la conexión al proyecto creado en firebase.
     AngularFireModule.initializeApp(environment.firebaseConfig), 
     ///Modulo que integra el servicio de autenticacion. 
-    AngularFireAuthModule, CursoFormModule
+    AngularFireAuthModule, CursoFormModule, UserFormModule, TarjetaCursoModule,
   ],
   providers: [
     ///Modulo que provee la conexión con FireStore

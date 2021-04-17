@@ -48,7 +48,24 @@ const routes: Routes = [{
   { path: 'detalles-curso', 
     loadChildren: () => import('./cursos/detalles-curso/detalles-curso.module').then(m => m.DetallesCursoModule),
     canActivate:[GuardEditGuard]
-  }];
+  },
+    { path: 'nuevo-usuario', 
+    loadChildren: () => import('./usuarios/nuevo-usuario/nuevo-usuario.module').then(m => m.NuevoUsuarioModule),
+    canActivate:[GuardEditGuard] 
+  },
+    { path: 'modificar-usuario', 
+    loadChildren: () => import('./usuarios/modificar-usuario/modificar-usuario.module').then(m => m.ModificarUsuarioModule),
+    canActivate:[GuardEditGuard] 
+  },
+    { path: 'mi-perfil', 
+    loadChildren: () => import('./usuarios/mi-perfil/mi-perfil.module').then(m => m.MiPerfilModule),
+    canActivate:[GuardEditGuard] 
+  },
+    { path: 'catalogo', 
+    loadChildren: () => import('./modulos/catalogo/catalogo.module').then(m => m.CatalogoModule),
+    canActivate:[GuardEditGuard] 
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

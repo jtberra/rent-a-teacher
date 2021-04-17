@@ -10,4 +10,7 @@ export class RoleValidator{
     isUser(user: User):boolean{
         return user.role === 'AMBOS';
     }
+    isVerifiedEmail(user: User):boolean{
+        return user.emailVerified;
+    }
 }

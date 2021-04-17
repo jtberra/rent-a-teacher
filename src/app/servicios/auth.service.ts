@@ -31,7 +31,7 @@ export class AuthService extends RoleValidator{
       const {user} = await this.afAuth.signInWithPopup(
         new firebase.auth.GoogleAuthProvider()
       );
-      this.updateUserData(user)
+      //this.updateUserData(user)
       return user;
     }catch(error){
       console.log(error)
@@ -56,7 +56,7 @@ export class AuthService extends RoleValidator{
         email, 
         password
       );
-      this.updateUserData(user);
+      //this.updateUserData(user);
       return user;
     }
     catch(error){
@@ -72,6 +72,7 @@ export class AuthService extends RoleValidator{
         password
       );
       await this.sendVerificationEmail(); 
+      this.updateUserData(user);
       return user;
     }catch(error){
       console.log(error);
@@ -86,6 +87,7 @@ export class AuthService extends RoleValidator{
       console.log(error);
     }
   }
+
   private updateUserData(user:User){
     const userRef : AngularFirestoreDocument<User> = 
       this.afs.doc(`users/${user.uid}`
@@ -94,12 +96,15 @@ export class AuthService extends RoleValidator{
       uid: user.uid,
       email: user.email,
       emailVerified: user.emailVerified,
+      phoneNumber: user.phoneNumber,
       displayName: user.displayName,
       photoURL: user.photoURL,
       role: 'AMBOS'
     };
-
     return userRef.set(data, {merge : true});
-
+  }
+  
+  getCurrentUser() : Promise<User>{
+    return this.afAuth.currentUser;
   }
 }
