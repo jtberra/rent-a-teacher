@@ -10,6 +10,7 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { CustomMatPaginatorIntl } from '../../servicios/paginator-es';
 import { FilterCatalogoPipe } from 'src/app/pipes/filter-catalogo.pipe';
 import { FormsModule } from '@angular/forms';
+import { TarjetaSolicitaCursoModule } from 'src/app/cursos/tarjeta-solicita-curso/tarjeta-solicita-curso.module';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     CatalogoRoutingModule,
     TarjetaCursoModule,
+    TarjetaSolicitaCursoModule,
     MatPaginatorModule,
     FormsModule
     //BrowserAnimationsModule

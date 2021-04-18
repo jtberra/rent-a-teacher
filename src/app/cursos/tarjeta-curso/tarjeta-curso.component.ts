@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { User } from 'src/app/modulos/modelos/user.interface';
-import { AuthService } from 'src/app/servicios/auth.service';
 import { UserRecordService } from 'src/app/servicios/user-record.service';
 
 @Component({

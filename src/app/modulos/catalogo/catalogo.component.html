@@ -15,11 +15,16 @@
     </div>
 </div>
 <div class="row mt-2">
-    <div class="grid-container mt-2">
-        <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async | filterCatalogo:filterCard | paginate:page_size:page_number"></app-tarjeta-curso>
+    <div class="mt-2"> 
+        <div *ngFor = "let card of itemCursos$ | async | filterCatalogo:filterCard | paginate:page_size:page_number">
+            <div *ngIf = "card.disponibilidad == 'disponible'">
+                <app-tarjeta-solicita-curso [data] = "card"></app-tarjeta-solicita-curso>
+            </div>
+        </div>     
     </div>
-    <div class="mx-auto mt-3">
-        <mat-paginator  [length]="100" [pageSize]="page_size" [pageSizeOptions]="[6, 12, 24, 100]"
-        (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
-    </div>
+    <br>
 </div> 
+<div class="mx-auto mt-3">
+    <mat-paginator  [length]="100" [pageSize]="page_size" [pageSizeOptions]="[6, 12, 24, 100]"
+    (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+</div>
