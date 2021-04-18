@@ -1,13 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { UserRecordService } from 'src/app/servicios/user-record.service';
 
 @Component({
-  selector: 'app-tarjeta-curso',
-  templateUrl: './tarjeta-curso.component.html',
-  styleUrls: ['./tarjeta-curso.component.css']
+  selector: 'app-tarjeta-solicita-curso',
+  templateUrl: './tarjeta-solicita-curso.component.html',
+  styleUrls: ['./tarjeta-solicita-curso.component.css']
 })
-export class TarjetaCursoComponent {
+export class TarjetaSolicitaCursoComponent implements OnInit {
 
   public itemUser$ = this.userSvc.user;
 
@@ -28,6 +28,10 @@ export class TarjetaCursoComponent {
   
   onGoToDetails(item:any):void {
     this.navigationExtras.state.value = item;
-    this.route.navigate(['detalles-curso'], this.navigationExtras);
+    this.route.navigate(['detalles-solicita-curso'], this.navigationExtras);
+  }
+
+  onGoToSolicitar(item:any) :void {
+    window.alert('has solicitado este curso');
   }
 }

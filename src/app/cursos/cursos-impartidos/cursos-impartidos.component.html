@@ -31,19 +31,17 @@
   </nav>
 
 <div class="mt-5">
-  <h2 class="card-title text-center">Panel de administración de tus cursos</h2>
-  <mat-paginator  
+  <h2 class="card-title text-center">Aquí podrás mirar todo acerca de tus cursos</h2>
+  <h4 class="card-subtitle mt-5">Recuerda mantener al día los detalles de tus cursos, eso te ayudará a llegar a más audiencia.</h4>
+  <!-- <mat-paginator  
                 [length]="20"
                 [pageSize]="page_size"
                 [pageSizeOptions]="[2, 4, 10]"
                 (page)="handlePage($event)">
-  </mat-paginator>
-  <div class="car-body mx-4 mt-4" *ngFor = "let cursoArray of itemCursos$ | async | paginateCursosImpartidos:page_size:page_number">
+  </mat-paginator> -->
+  <div class="car-body mx-4 mt-4" *ngFor = "let cursoArray of itemCursos$ | async">
     <div *ngIf = "user.uid == cursoArray.mentor">
         <app-tarjeta-curso [data] = "cursoArray"></app-tarjeta-curso>
-      <ng-template #emtydata>
-        <p>vacio jsjs</p>
-      </ng-template>
     </div>
   </div>
 </div>

@@ -1,0 +1,21 @@
+<div *ngFor = "let card of itemUser$ | async">
+    <div *ngIf = "data.mentor == card.uid">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4 class="card-title">{{ data.nombre }}</h4>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2">Trabaja con {{ card.displayName }} </h6>
+                <p class="card-text"> {{ data.descripcion }} </p>
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-outline-success btn-sm" (click) = "onGoToSolicitar(data)">
+                        solicitar ahora
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-sm" (click) = "onGoToDetails(data)">
+                        abrir detalles
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

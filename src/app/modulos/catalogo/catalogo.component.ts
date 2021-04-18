@@ -12,6 +12,8 @@ export class CatalogoComponent implements OnInit {
 
   public itemCursos$ = this.cursosSvc.curso;
 
+  filterCard = '';
+
   page_size: number = 6;
   page_number: number = 1;
 
