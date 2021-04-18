@@ -64,7 +64,8 @@ const routes: Routes = [{
     { path: 'catalogo', 
     loadChildren: () => import('./modulos/catalogo/catalogo.module').then(m => m.CatalogoModule),
     canActivate:[GuardEditGuard] 
-  }
+  },
+    { path: 'detalles-solicita-curso', loadChildren: () => import('./cursos/detalles-solicita-curso/detalles-solicita-curso.module').then(m => m.DetallesSolicitaCursoModule) }
 ];
 
 @NgModule({

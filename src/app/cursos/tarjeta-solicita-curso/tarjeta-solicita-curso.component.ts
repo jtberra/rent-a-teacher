@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { UserRecordService } from 'src/app/servicios/user-record.service';
 
 @Component({
@@ -13,11 +13,11 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
 
   @Input() data: any;
 
-  // navigationExtras: NavigationExtras ={
-  //   state: {
-  //     value: null
-  //   }
-  // };
+  navigationExtras: NavigationExtras ={
+    state: {
+      value: null
+    }
+  };
 
   constructor(private route: Router, private userSvc:UserRecordService) { 
 
@@ -26,9 +26,9 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  // onGoToDetails(item:any):void {
-  //   this.navigationExtras.state.value = item;
-  //   this.route.navigate(['detalles-curso'], this.navigationExtras);
-  // }
+  onGoToDetails(item:any):void {
+    this.navigationExtras.state.value = item;
+    this.route.navigate(['detalles-solicita-curso'], this.navigationExtras);
+  }
 
 }
