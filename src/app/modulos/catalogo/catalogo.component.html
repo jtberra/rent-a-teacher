@@ -1,19 +1,25 @@
-
-<div class="form-group">
-    <input type="text" name="filterCard" id="filterCard" class="form-control" placeholder="buscar en catálogo" 
-    [(ngModel)] = "filterCard">
-    <br>
-    <button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
+<button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="control-label" for="filterCard">
+                        Puedes filtrar el catálogo y buscar un curso hecho para ti.
+                    </label>
+                    <input type="text" name="filterCard" id="filterCard" class="form-control" 
+                    placeholder="Buscar curso, area de conocimiento" [(ngModel)] = "filterCard">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<mat-paginator  
-                [length]="100"
-                [pageSize]="page_size"
-                [pageSizeOptions]="[6, 12, 24, 100]"
-                (page)="handlePage($event)"
-                showFirstLastButtons>
-</mat-paginator>
-
-<div class="grid-container mt-5">
-    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async | filterCatalogo:filterCard | paginate:page_size:page_number"></app-tarjeta-curso>
-</div>
+<div class="row mt-2">
+    <div class="grid-container mt-2">
+        <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async | filterCatalogo:filterCard | paginate:page_size:page_number"></app-tarjeta-curso>
+    </div>
+    <div class="mx-auto mt-3">
+        <mat-paginator  [length]="100" [pageSize]="page_size" [pageSizeOptions]="[6, 12, 24, 100]"
+        (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+</div> 

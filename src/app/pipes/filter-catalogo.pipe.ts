@@ -5,15 +5,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterCatalogoPipe implements PipeTransform {
 
-  transform(value: any , args: any): any {
+  transform(value: any , args: string): any {
     const resultadoCard = [];
-    if(args === '' || args.length < 5 ) return value;
+    
+    if(args === '' ) return value;
+    
     for(const card of value){
-      if(card.nombre.toLowerCase().indexOf(args.toLowerCase()) > -1){
-        resultadoCard.push(card);
+      if(card.disponibilidad == 'disponible'){
+        if(card.nombre.toLowerCase().indexOf(args.toLowerCase())  > -1){
+          resultadoCard.push(card);
+        };
       };
     };
     return resultadoCard;
   }
-
 }
