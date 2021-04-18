@@ -31,4 +31,7 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
     this.route.navigate(['detalles-solicita-curso'], this.navigationExtras);
   }
 
+  onGoToSolicitar(item:any) :void {
+    window.alert('has solicitado este curso');
+  }
 }
