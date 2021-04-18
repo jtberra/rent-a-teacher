@@ -1,5 +1,10 @@
 
-<button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
+<div class="form-group">
+    <input type="text" name="filterCard" id="filterCard" class="form-control" placeholder="buscar en catálogo" 
+    [(ngModel)] = "filterCard">
+    <br>
+    <button class="btn bg-dark text-light mt-5" (click)="goBack()">Volver</button>
+</div>
 
 <mat-paginator  
                 [length]="100"
@@ -10,5 +15,5 @@
 </mat-paginator>
 
 <div class="grid-container mt-5">
-    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async | paginate:page_size:page_number"></app-tarjeta-curso>
+    <app-tarjeta-curso [data] = "card" *ngFor = "let card of itemCursos$ | async | filterCatalogo:filterCard | paginate:page_size:page_number"></app-tarjeta-curso>
 </div>
