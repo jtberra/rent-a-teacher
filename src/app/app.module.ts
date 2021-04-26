@@ -40,7 +40,8 @@ import { TarjetaSolicitaCursoModule } from './cursos/tarjeta-solicita-curso/tarj
     ///Modulo que provee la conexión al proyecto creado en firebase.
     AngularFireModule.initializeApp(environment.firebaseConfig), 
     ///Modulo que integra el servicio de autenticacion. 
-    AngularFireAuthModule, CursoFormModule, UserFormModule, TarjetaCursoModule, TarjetaSolicitaCursoModule
+    AngularFireAuthModule, 
+    CursoFormModule, UserFormModule, TarjetaCursoModule, TarjetaSolicitaCursoModule
   ],
   providers: [
     ///Modulo que provee la conexión con FireStore
