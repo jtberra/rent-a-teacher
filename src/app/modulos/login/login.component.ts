@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { User } from '../modelos/user.interface';
@@ -24,12 +24,11 @@ export class LoginComponent implements OnInit {
     }
   }
   
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
+  loginForm: FormGroup;
 
-  constructor(private authSvc: AuthService, private router: Router) {
+  constructor(private authSvc: AuthService, private router: Router,
+    private fb:FormBuilder) {
+      this.initForm();
   }
 
   ngOnInit(): void {}
@@ -53,5 +52,18 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/register'])
     }
   }
+  private initForm() :void{
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    });
+  }
+
+  isValidField(field:string):string{
+    const validatedField = this.loginForm.get(field);
+    return (!validatedField.valid && validatedField.touched)
+    ? 'is-invalid' : validatedField.touched ? 'is-valid' : '';
+  }
+
 }
 
