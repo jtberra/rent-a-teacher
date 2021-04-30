@@ -15,13 +15,13 @@ export class SolicitudesService {
 
   constructor(private readonly afs : AngularFirestore) {
     this.SolicitudCollection = afs.collection<Solicitud>('solicitud');
-    this.getCurso();
+    this.getSolicitudes();
    }
 
-  onDeleteCurso(idCurso: string) : Promise<void>{
+  onDeleteSolicitud(idsolicitud: string) : Promise<void>{
     return new Promise(async (resolve, reject) =>{
       try{
-        const result = await this.SolicitudCollection.doc(idCurso).delete();
+        const result = await this.SolicitudCollection.doc(idsolicitud).delete();
         resolve (result);
         alert('Has cancelado la solicitud');
       }
@@ -31,10 +31,10 @@ export class SolicitudesService {
     });
   }
 
-  onSaveCurso(solicitud: Solicitud, idSolicitud:string) : Promise<void>{
+  onSaveSolicitud(solicitud: Solicitud) : Promise<void>{
     return new Promise(async (resolve, reject) => {
       try{
-        const id = idSolicitud || this.afs.createId();
+        const id = this.afs.createId();
         const data = {id, ... solicitud };
         const result = await this.SolicitudCollection.doc(id).set(data);
         resolve(result);
@@ -44,7 +44,7 @@ export class SolicitudesService {
       }
     });
   }
-  private getCurso() : void{ 
+  private getSolicitudes() : void{ 
     this.solicitud = this.SolicitudCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as Solicitud))
     );
