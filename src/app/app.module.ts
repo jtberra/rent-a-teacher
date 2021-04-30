@@ -31,7 +31,7 @@ import { TarjetaSolicitaCursoModule } from './cursos/tarjeta-solicita-curso/tarj
     AppComponent,
     NavbarComponent,
     SendEmailComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
