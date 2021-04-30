@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudesService } from 'src/app/servicios/solicitudes.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public itemSolicitud$ = this.solicitudSvc.solicitud;
+
+  constructor(public solicitudSvc:SolicitudesService) { }
 
   ngOnInit(): void {
   }

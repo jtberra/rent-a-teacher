@@ -1,1 +1,11 @@
-<p>tarjeta-solicitud works!</p>
+<div class="alert alert-dismissible bg-dark">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class="card-text">{{ data.idmentee }} ha solicitado tu curso {{ data.idcurso }}.</p>
+    <div class="btn-toolbar">
+        <button type="button" class="btn btn-outline-success btn-sm" (click) = "aceptar()">
+            Aceptar
+        </button>
+        <button type="button" class="btn btn-outline-danger btn-sm" (click) = "declinar()">
+            Rechazar
+        </button>    
+</div>
