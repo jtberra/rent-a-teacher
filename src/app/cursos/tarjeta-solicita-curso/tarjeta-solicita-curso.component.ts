@@ -57,9 +57,9 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
     this.route.navigate(['detalles-solicita-curso'], this.navigationExtras);
   }
 
-  onGoToSolicitar(item:any) :void {
+  onGoToSolicitar() :void {
     if(this.SolicitudForm.valid){
-      const solicitud = this.SolicitudForm.value
+      const solicitud:Solicitud = this.SolicitudForm.value
       this.solicitudSvc.onSaveSolicitud(solicitud);
       this.SolicitudForm.reset();
     }else{
@@ -70,7 +70,9 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
   private initForm(uid:string) :void{
     this.SolicitudForm = this.fb.group({
       idmentee:[uid],
-      
+      idcurso:[this.data.id],
+      estado:['PENDIENTE'],
+      notificacion:['true']
       /* 
       idsolicitud:    string;
       idmentee:       string;
