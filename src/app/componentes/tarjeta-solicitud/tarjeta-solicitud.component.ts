@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CursoRecordService } from 'src/app/servicios/curso-record.service';
 import { SolicitudesService } from 'src/app/servicios/solicitudes.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { SolicitudesService } from 'src/app/servicios/solicitudes.service';
 })
 export class TarjetaSolicitudComponent implements OnInit {
 
-  @Input() data: any;
+  /*NOTA MENTAL LOS FILTROS SE HACEN CON PIPES*/
+  @Input() data: any; 
 
   constructor() { }
 
@@ -16,9 +18,9 @@ export class TarjetaSolicitudComponent implements OnInit {
   }
 
   aceptar(){
-
+    window.alert('solicitud aceptada');
   }
   declinar(){
-
+    window.alert('solicitud declinada');
   }
 }

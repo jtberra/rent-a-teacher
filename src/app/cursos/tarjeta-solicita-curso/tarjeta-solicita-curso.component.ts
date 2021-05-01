@@ -32,7 +32,7 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
     const currentUser:User = await this.authSvc.getCurrentUser();
     if(currentUser){
       this.user= currentUser;
-      this.initForm(this.user.uid);
+      this.initForm(this.user.uid, this.user.displayName);
     }
   }
 
@@ -67,19 +67,14 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
     }
   }
 
-  private initForm(uid:string) :void{
+  private initForm(uid:string, uname:string) :void{
     this.SolicitudForm = this.fb.group({
       idmentee:[uid],
       idcurso:[this.data.id],
+      cursoDisplayName:[this.data.nombre],
+      menteeDisplayName:[uname],
       estado:['PENDIENTE'],
       notificacion:['true']
-      /* 
-      idsolicitud:    string;
-      idmentee:       string;
-      idcurso:        string;
-      estado:         string;
-      notificacion:   string;
-      */ 
     });
   }
 }
