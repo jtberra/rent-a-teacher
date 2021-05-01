@@ -71,6 +71,7 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
     this.SolicitudForm = this.fb.group({
       idmentee:[uid],
       idcurso:[this.data.id],
+      idmentor: [this.data.mentor],
       cursoDisplayName:[this.data.nombre],
       menteeDisplayName:[uname],
       estado:['PENDIENTE'],

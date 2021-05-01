@@ -24,7 +24,6 @@ import { GuardEditGuard } from './guards/guard-edit.guard';
 import { UserFormModule } from './componentes/user-form/user-form.module';
 import { TarjetaCursoModule } from './cursos/tarjeta-curso/tarjeta-curso.module';
 import { TarjetaSolicitaCursoModule } from './cursos/tarjeta-solicita-curso/tarjeta-solicita-curso.module';
-import { FiltroSolicitudesPipe } from './pipes/filtro-solicitudes.pipe';
 
 
 @NgModule({
@@ -33,7 +32,6 @@ import { FiltroSolicitudesPipe } from './pipes/filtro-solicitudes.pipe';
     NavbarComponent,
     SendEmailComponent,
     FooterComponent,
-    FiltroSolicitudesPipe,
   ],
   imports: [
     BrowserModule,

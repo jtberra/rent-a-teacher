@@ -5,8 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroSolicitudesPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: any): any {
+    const resultadoCard = [];
+    
+    for(const card of value){
+      if(card.estado == 'PENDIENTE'){
+          resultadoCard.push(card);
+      };
+    };
+    return resultadoCard;
   }
 
 }

@@ -46,7 +46,7 @@
     <hr class="my-4">
     <p class="lead">Mira las solicitudes a tus cursos fácil y rápido.</p>
     
-    <div *ngFor = "let solicitudArray of itemSolicitud$ | async">
+    <div *ngFor = "let solicitudArray of itemSolicitud$ | async | filtroSolicitudes">
       <app-tarjeta-solicitud [data] = "solicitudArray"></app-tarjeta-solicitud>
     </div>  
     
