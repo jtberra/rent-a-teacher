@@ -60,7 +60,7 @@ export class TarjetaSolicitaCursoComponent implements OnInit {
   onGoToSolicitar() :void {
     if(this.SolicitudForm.valid){
       const solicitud:Solicitud = this.SolicitudForm.value
-      this.solicitudSvc.onSaveSolicitud(solicitud);
+      this.solicitudSvc.onSaveSolicitud(solicitud, null);
       this.SolicitudForm.reset();
     }else{
       alert('el registro no es valido');   

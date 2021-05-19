@@ -12,7 +12,6 @@ export class UserRecordService{
   user: Observable<User[]>;
 
   private userCollection: AngularFirestoreCollection<User>;
-  private currentCollection: AngularFirestoreDocument<User>;
 
   constructor(private readonly afs: AngularFirestore) {
     this.userCollection = afs.collection<User>('users');

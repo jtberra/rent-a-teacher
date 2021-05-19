@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Solicitud } from 'src/app/cursos/modelos/solicitud.interface';
 import { User } from 'src/app/modulos/modelos/user.interface';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { CursoRecordService } from 'src/app/servicios/curso-record.service';
+import { SolicitudesService } from 'src/app/servicios/solicitudes.service';
 import { UserRecordService } from 'src/app/servicios/user-record.service';
 
 @Component({
@@ -14,9 +17,6 @@ export class TarjetaSolicitudComponent implements OnInit {
   /*NOTA MENTAL LOS FILTROS SE HACEN CON PIPES*/
   @Input() data: any; 
 
-  public itemCurso$= this.cursoSvc.curso;
-  public itemUser$ = this.userSvc.user;
-
   user: User = null;
   
   async getUser() {
@@ -26,8 +26,8 @@ export class TarjetaSolicitudComponent implements OnInit {
     }
   }
 
-  constructor(private cursoSvc : CursoRecordService, public userSvc: UserRecordService,
-    private authSvc: AuthService) { 
+  constructor(private route: Router, private authSvc: AuthService,
+    private solicitudSvc: SolicitudesService) { 
       this.getUser();
   }
 
@@ -35,9 +35,14 @@ export class TarjetaSolicitudComponent implements OnInit {
   }
 
   aceptar(){
+
     window.alert('solicitud aceptada');
   }
-  declinar(){
-    window.alert('solicitud declinada');
+  async declinar(idsolicitud:string) :Promise <void> {
+    try{
+      await this.solicitudSvc.onDeleteSolicitud(idsolicitud);
+    }catch(err){
+      console.log(err);
+    }
   }
 }

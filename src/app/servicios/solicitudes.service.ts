@@ -31,10 +31,10 @@ export class SolicitudesService {
     });
   }
 
-  onSaveSolicitud(solicitud: Solicitud) : Promise<void>{
+  onSaveSolicitud(solicitud: Solicitud, idSolicitud :string) : Promise<void>{
     return new Promise(async (resolve, reject) => {
       try{
-        const id = this.afs.createId();
+        const id = idSolicitud || this.afs.createId();
         const data = {id, ... solicitud };
         const result = await this.SolicitudCollection.doc(id).set(data);
         resolve(result);
